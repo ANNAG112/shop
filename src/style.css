@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@theme {
+  --color-main-color:  rgb(172, 159, 233);
+  --color-text-color: rgb(32, 31, 31);
+  --text-28:1.75rem;
+  --gap-my: 60px;
+}

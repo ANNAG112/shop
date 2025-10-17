@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.yandexPayWidget {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 400px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 10000;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .2);
+  background: #fff;
+}
+
+.yandexPayWidget .close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, .04);
+  color: #000;
+  transform: rotate(-45deg);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 24px;
+  right: 10px;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.yandexpay-badge {
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+.yandexpay-badge .yandexpay-text-container {
+  text-indent: 3px;
+  opacity: .8;
+}
+
+.yandexpay-badge .yandexpay-text-container span {
+  top: 1px;
+}
+
+.yandexpay-badge .yandexpay-text-container span:after {
+  content: "×";
+}
+
+.yandexpay-badge .yandexpay-container-service {
+  display: flex;
+}
+
+.yandexpay-badge .yandexpay-badge-container {
+  display: flex;
+  padding-right: 5px;
+  margin-right: 2px;
+}
+
+.yandexpay-badge .yandexpay-badge-icon {
+  z-index: 1;
+  margin-left: 1px;
+}
+
+.yandexpay-badge .yandexpay-badge-price-amount {
+  //color: #fff;
+}
+
+.yandexpay-badge.yandexpay-badge-main {
+  min-width: 280px;
+  height: 42px;
+  padding: 6px;
+  margin-top: 20px;
+}
+
+.yandexpay-badge.yandexpay-badge-main .yandexpay-badge-icon {
+  transform: scale(1.1);
+  margin-top: 1px;
+}
+
+.yandexpay-badge.yandexpay-badge-main .yandexpay-container-service {
+  //line-height: 33px;
+  font-size: 18px;
+  //height: 28px;
+}
+
+@media screen and (min-width: 360px) {
+  .yandexpay-badge.yandexpay-badge-main .yandexpay-container-service {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .yandexpay-badge.yandexpay-badge-main .yandexpay-container-service {
+    font-size: 18px;
+  }
+}
+
+
+
+.yandexpay-badge-main .yandexpay-container-service {
+  display: flex;
+  justify-content: center;   /* центрируем по горизонтали */
+  align-items: center;       /* центрируем по вертикали */
+  width: 100%;
+  height: 100%; 
+  text-align: center;
+}
+
+.yandexpay-badge-main .yandexpay-badge-container,
+.yandexpay-badge-main .yandexpay-text-container {
+  margin: 0;   /* убираем отступы */
+  padding: 0;
+}
+.yandexpay-badge-main .yandexpay-container-service {
+  justify-content: center;
+  gap: 4px; /* небольшой промежуток между суммой и "× 4 платежа" */
+}
+
+.yandexpay-badge-main .yandexpay-container-service span,
+.yandexpay-badge-main .yandexpay-container-service div {
+  line-height: 1;  /* убираем лишние отступы сверху/снизу */
+}

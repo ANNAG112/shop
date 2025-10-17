@@ -1,0 +1,214 @@
+var $ = jQuery;
+
+$(document).ready(function () {
+  $('.continue-shopping-container .search-button').on('click', function (e) {
+    e.preventDefault();
+    $('.search-btn').trigger('click');
+    $('body').removeClass('no-scroll');
+  });
+
+  $('#product-details-panel .attribute-value.copy').on('click', function (e) {
+    e.preventDefault();
+    if ($(this).data('action-type') == 'copy') {
+      try {
+        $(this).find('input').select();
+        document.execCommand("copy");
+      } catch (e) {
+        console.log(e);
+      }
+      return;
+    }
+  });
+
+  if ($('.product-slider').length) {
+    let $parent = $(this),
+        $thumbs_slider = $parent.find('#thumbs_image_slider');
+
+    let thumb_splide = new Splide($thumbs_slider[0], {
+      gap: '0',
+      speed: 800,
+      fixedWidth: '70px',
+      fixedHeight: '70px',
+      waitForTransition: false,
+      arrows: false,
+      pagination: false,
+      wheel: true,
+      releaseWheel: true,
+      breakpoints: {
+        960: {
+          gap: '0',
+          fixedWidth: '60px',
+          fixedHeight: '60px',
+        },
+      }
+    });
+
+    thumb_splide.mount();
+
+    let $main_image_slider = $parent.find('#main_image_slider');
+
+    let main_image_splide = new Splide($main_image_slider[0], {
+      type: 'fade',
+      perPage: 1,
+      easing: 'cubic-bezier(.2,0,.28,1)',
+      speed: 700,
+      drag: false,
+      dragMinThreshold: { mouse: 0, touch: 5 },
+      pagination: false,
+      arrows: false,
+      rewind: true,
+      rewindByDrag: true,
+      preloadPages: 2,
+      waitForTransition: true,
+      breakpoints: {
+        960: {
+          drag: true,
+        },
+      },
+    });
+
+    main_image_splide.mount();
+    main_image_splide.sync(thumb_splide);
+
+    $parent.find('.splide-next').click(function () {
+      main_image_splide.go('>');
+    });
+
+    $parent.find('.splide-prev').click(function () {
+      main_image_splide.go('<');
+    });
+
+    let clicked = 0;
+    thumb_splide.on('click', function (Slide) {
+      clicked = 1;
+      main_image_splide.go(Slide.index);
+      setTimeout(function () { clicked = 0; }, 810);
+    });
+
+    thumb_splide.on('moved', function () {
+      if (!clicked) {
+        $('.product-preview-slider').find('.is-active').click();
+      }
+    });
+  }
+
+  $(document).on('change', '.js-offer', function () {
+    let $this = $(this),
+        offerID = $this.val();
+
+    $(".js-cart-link")
+      .data('can-buy', $this.data('can-buy')).attr('data-can-buy', $this.data('can-buy'))
+      .data('has-size-grid', $this.data('has-size-grid')).attr('data-has-size-grid', $this.data('has-size-grid'));
+
+    if (!$this.data('has-size-grid') && !$this.data('can-buy')) {
+      $(".js-cart-link .action-text").html($(".js-cart-link .action-text").data('request-offer-text'));
+      $(".js-cart-link").data('request-offer', 1).attr('data-request-offer', 1);
+    }
+
+    if (typeof mindbox !== 'undefined') {
+      mindbox("async", {
+        operation: "Website.ViewProduct",
+        data: {
+          viewProduct: {
+            product: {
+              ids: { website: offerID }
+            }
+          }
+        }
+      });
+    }
+
+    $(".js-cart-link").data("product-id", offerID);
+    $(".js-cart-link").find('.offer-size').data('offer-size-button', offerID);
+
+    if ($this.data('offer-special-price') == '') {
+      $('.product-info-block .title-block .price .special-price').addClass('hidden');
+      $('.product-info-block .title-block .price .old-price').removeClass('line-through');
+    } else {
+      $('.product-info-block .title-block .price .special-price').removeClass('hidden');
+      $('.product-info-block .title-block .price .special-price .price-label').html($this.data('offer-special-price'));
+      $('.product-info-block .title-block .price .old-price').addClass('line-through');
+    }
+
+    $('.product-info-block .title-block .price').addClass('with-price');
+    var currencyLabel = $('.product-info-block .title-block .price .currency-label');
+    (!$this.data('can-buy') || $this.data('offer-price') == '') ? currencyLabel.hide() : currencyLabel.show();
+    $('.product-info-block .title-block .price .old-price .price-label').html($this.data('can-buy') ? $this.data('offer-price') : '').show();
+
+    $('.product-ctrl-block-wrapper .action-text').removeClass('active');
+    $('.product-ctrl-block-wrapper .action-text.size-selected').addClass('active');
+
+    if ($this.data('offer-size-id') == '') {
+      $(".js-cart-link").find('.offer-size').removeClass('active');
+      return;
+    }
+
+    $(".js-cart-link").find('.offer-size').addClass('active').attr('data-offer-size-button', $this.data('offer-size'));
+    $(this).closest('.product-ctrl-block').find('.fav-link').attr("data-offer", offerID);
+
+    if (productStores[offerID]) {
+      let chosenOfferInfo = productStores[offerID];
+
+      if (parseInt(chosenOfferInfo.IS_AVAILABLE) == 0) {
+        $('.js-quick-delivery').hide();
+        $('.js-delivery-avia').show();
+        $('.js-delivery-request').show();
+        $('.js-product-stores').hide();
+      } else {
+        $('.js-quick-delivery').show();
+        $('.js-delivery-avia').hide();
+        $('.js-delivery-request').hide();
+        $('.js-product-stores').show();
+      }
+
+      for (let storeID in chosenOfferInfo.STORES) {
+        let storeAmount = parseInt(chosenOfferInfo.STORES[storeID]),
+            $storeEl = $('.js-product-stores [data-id="' + storeID + '"]');
+        if (storeAmount > 0) {
+          $storeEl.addClass('is-active').show();
+        } else {
+          $storeEl.removeClass('is-active').hide();
+        }
+      }
+      $('.js-product-store:not(.is-active)').hide();
+    }
+  });
+
+  var $selectedOffer = $('input.js-offer:checked');
+  if ($selectedOffer.length) {
+    var initialOfferId = $selectedOffer.val();
+    $('.fav-link').attr('data-offer', initialOfferId);
+  }
+
+function selectOfferFromURL() {
+const urlParams = new URLSearchParams(window.location.search);
+const offerParam = urlParams.get('offer');
+
+if (offerParam) {
+
+  const $activeTabBody = $('.tabs-body .tab-body.active');
+
+  const $offerInput = $activeTabBody.find('input.js-offer[value="' + offerParam + '"]');
+
+  if ($offerInput.length) {
+    $offerInput.prop('checked', true).trigger('change');
+
+    $activeTabBody.find('.checkbox-block').removeClass('is-active');
+    $offerInput.closest('.checkbox-block').addClass('is-active');
+  }
+}
+}
+
+  selectOfferFromURL();
+  setTimeout(selectOfferFromURL, 500);
+  setTimeout(selectOfferFromURL, 1500);
+});
+
+$(document).on('click', 'input.js-offer', function () {
+  var offerID = $(this).val();
+  $('.fav-link').attr('data-offer', offerID);
+});
+
+$(document).on('offers-updated', function () {
+  selectOfferFromURL();
+});

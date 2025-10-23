@@ -1,50 +1,136 @@
 <!doctype html>
 <html lang="en" class="h-full ">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>shop</title>
-  </head>
-  <body class="bg-main-color text-text-color  dark:bg-fuchsia-950 dark:text-amber-50 h-full" >
-    <div class="grid grid-rows-[auto 1fr auto] min-h-full container m-auto border ">
-      <header>
-        <h1 class="text-28 text-gray-800 font-bold uppercase">Интернет-магазин</h1>
-      </header>
-      <main>
-        <div class="catalog  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-3 ">
-          <div class=" border-amber-300 rounded-lg p-4">
-            <img class="rounded-lg" src="public/img/b1a220be-322e-4540-9020-486030dd4404.jpg" alt="картинка">
-            <h3 class="font-bold text-red-800">
-              <a href="#" class="inline-block hover:text-amber-200 hover:scale-120 origin-center transition duration-300 focus:text-emerald-700 ">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shop</title>
+</head>
+
+<body class="bg-main-color text-text-color  dark:bg-fuchsia-950 dark:text-amber-50 h-full">
+  <div class="grid grid-rows-[auto 1fr auto] min-h-full container m-auto border ">
+    <header>
+      <h1 class="text-28 text-gray-800 font-bold uppercase">Интернет-магазин <i class="bi bi-wallet-fill"></i></h1>
+    </header>
+    <main>
+      <div class="catalog  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-3 ">
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/b1a220be-322e-4540-9020-486030dd4404.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+            <div >
+            <a class="absolute top-3 left-3 bg-gray-200 text-gray-600 text-xs font-medium uppercase px-2 py-1 rounded ">
               SALE
-              </a>
-            </h3>
-            <p>Nike Air Force 1 Low SP Tiffany And Co.</p>
-            <p class="text-[24px] text-[#454544]">от 167 990 &nbsp;₽&nbsp;</p>
+            </a>
+            </div>
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike Air Force 1 Low SP Tiffany And Co.</p>
+          <div class="mt-2">
+            <p class="text-[20px] text-[#454544] font-semibold text-red-800">от 167 990 &nbsp;₽&nbsp;</p>
+            <p class="text-[16px] text-gray-400 line-through">от 229 990</p>
+            <div class="mt-2 border border-gray-400 rounded-lg py-1.5 text-center">
+              <p class="text-[14px] text-gray-700">от <span class="font-semibold">4 997 ₽</span> × 4 платежа</p>
+            </div>
+           
           </div>
-          <div class=" border-amber-300 rounded-lg p-4">
-            <img class="rounded-lg" src="public/img/3491c2a2-8da6-4390-9d84-bd5307f0b5c5.jpg" alt="картинка">
-            <h3 class="font-bold text-red-800">
-              <a href="#" class="inline-block hover:text-amber-200 hover:scale-120 origin-center transition duration-300 focus:text-emerald-700 ">
-              
-              </a>
-            </h3>
-            <p>Nike Air Jordan 1 Low Dior</p>
-            <p class="text-[24px] text-[#454544]">от 1 516 990 &nbsp;₽&nbsp;</p>
-          </div>
-         
-          </div>
-
-          
-
-
         </div>
-      </main>
-      <footer>
-        <p>&copy; Гладий Аннпб 2025 г.</p>
-      </footer>
-    </div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/3491c2a2-8da6-4390-9d84-bd5307f0b5c5.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike Air Jordan 1 Low Dior</p>
+          <div class="mt-2">
+            <p class="text-[20px] text-[#454544] font-semibold text-black-800">от 1 516 990 &nbsp;₽&nbsp;</p>
+             <div class="mt-2 border border-gray-400 rounded-lg py-1.5 text-center">
+              <p class="text-[14px] text-gray-700">от <span class="font-semibold">14 247 ₽</span> × 4 платежа</p>
+            </div>
+        </div>
+        </div>
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/f27b5afa-0633-4a28-8283-8505de2e6fa2 3.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <a class="absolute top-3 left-3 bg-gray-200 text-gray-600 text-xs font-medium uppercase px-2 py-1 rounded ">
+              ЖЕНСКИЙ
+            </a>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike Air Jordan 1 Retro Low OG SP Travis Scott Olive (W)</p>
+          <div class="mt-2">
+            <p class="text-[20px] text-[#454544] font-semibold text-black-800">от 83 990  &nbsp;₽&nbsp;</p>
+        </div>
+        </div>
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/0fa3eb13-3e71-4b03-838f-dd645bdb20dd orang 4.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike SB Dunk Low Grateful Dead Bears Orange</p>
+          <div class="mt-2">
+            <p class="text-[20px] text-[#454544] font-semibold text-black-800">от 681 990   &nbsp;₽&nbsp;</p>
+        </div>
+        </div>
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/07e09d76-9381-4df2-9cca-42ec95dec49a 5.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">New Balance 2002R Protection Pack Rain Cloud</p>
+          <div class="mt-2">
+           <p class="text-[20px] text-[#454544] font-semibold text-red-800">от 19 990   &nbsp;₽&nbsp;</p>
+            <p class="text-[16px] text-gray-400 line-through">от 229 990</p>
+        </div>
+        </div>
+         <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/b2744ab6-14d9-4be8-a4a5-87351810442c 6.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike Air Jordan 1 Retro Low OG Zion Williamson Voodoo</p>
+          <div class="mt-2">
+            <p class="text-[20px] text-[#454544] font-semibold text-black-800">от 56 990 ₽  &nbsp;₽&nbsp;</p>
+        </div>
+        </div>
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/9a85410e-f5dd-4ec1-b82a-3a6d0fd4ba9c 7.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike Air Jordan 1 Retro Low OG SP Travis Scott Black Phantom</p>
+          <div class="mt-2">
+            <p class="text-[20px] text-[#454544] font-semibold text-black-800">от 89 990  &nbsp;₽&nbsp;</p>
+        </div>
+        </div>
+        <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
+          <img
+            class="rounded-lg  object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            src="public/img/441f3c3e-b0f0-408c-81a2-87d9420fc4d2 8.jpg" alt="картинка">
+          <h3 class="font-bold text-red-800">
+          </h3>
+          <p class="text-[20px] font-medium text-gray-900 leading-tight">New Balance 530 White Silver Navy</p>
+          <div class="mt-2">
+             <p class="text-[20px] text-[#454544] font-semibold text-red-800">от 14 990    &nbsp;₽&nbsp;</p>
+            <p class="text-[16px] text-gray-400 line-through">от 23 090 </p>
+        </div>
+        </div>
+       
+      </div>
+    </main>
+    <footer>
+      <p>&copy; Гладий Аннпб 2025 г.</p>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

@@ -1,5 +1,6 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "tailwindcss";
+@import "flowbite/dist/flowbite.css";
 @theme {
   --color-main-color: white;  
   --color-text-color: rgb(32, 31, 31);

@@ -8,11 +8,62 @@
   <title>shop</title>
 </head>
 
-<body class="bg-main-color text-text-color  dark:bg-fuchsia-950 dark:text-amber-50 h-full">
+<body class="bg-main-color text-text-color  dark:text-amber-50 h-full">
+  
   <div class="grid grid-rows-[auto 1fr auto] min-h-full container m-auto border ">
     <header>
-      <h1 class="text-28 text-gray-800 font-bold uppercase">Интернет-магазин <i class="bi bi-wallet-fill"></i></h1>
+      
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+  <a href="#">
+    <img src="public/img/telegram_logo.jpg" 
+         alt="Логотип"
+         class="h-20 w-auto" />
+  </a>
+</div>
+
+      <!-- Навигация -->
+      <nav aria-label="Основная навигация" class="flex-1">
+        <ul class="flex items-center justify-center gap-8 overflow-x-auto">
+     
+          <li>
+            <a href="#"
+               class="inline-block pb-2 border-b-2 border-transparent hover:border-current focus:outline-none focus:border-current transition-colors"
+               >ОДЕЖДА</a>
+          </li>
+          <li>
+            <a href="#"
+               class="inline-block pb-2 border-b-2 border-transparent hover:border-current focus:outline-none focus:border-current transition-colors"
+               >ОБУВЬ</a>
+          </li>
+          <li>
+            <a href="#"
+               class="inline-block pb-2 border-b-2 border-transparent hover:border-current focus:outline-none focus:border-current transition-colors"
+               >АКСЕССУАРЫ</a>
+          </li>
+          <li>
+            <a href="#"
+               class="inline-block pb-2 border-b-2 border-transparent hover:border-current focus:outline-none focus:border-current transition-colors"
+               >СУМКИ</a>
+          </li>
+          <li>
+            <a href="#"
+               class="inline-block pb-2 border-b-2 border-transparent hover:border-current focus:outline-none focus:border-current transition-colors"
+               >ИНТЕРЬЕР</a>
+          </li>
+          <li>
+            <a href="#"
+               class="inline-block pb-2 border-b-2 border-transparent hover:border-current focus:outline-none focus:border-current transition-colors"
+               >SALE</a>
+          </li>
+        </ul>
+      </nav>
+
+     
+    </div>
     </header>
+    <!-- карточки -->
     <main>
       <div class="catalog  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-3 ">
         <div class="relative border-amber-300 rounded-lg p-4 product-card bg-white  w-[300px] h-[400px]">
@@ -28,6 +79,7 @@
           </h3>
           <p class="text-[20px] font-medium text-gray-900 leading-tight">Nike Air Force 1 Low SP Tiffany And Co.</p>
           <div class="mt-2">
+           
             <p class="text-[20px] text-[#454544] font-semibold text-red-800">от 167 990 &nbsp;₽&nbsp;</p>
             <p class="text-[16px] text-gray-400 line-through">от 229 990</p>
             <div class="mt-2 border border-gray-400 rounded-lg py-1.5 text-center">
@@ -121,6 +173,10 @@
           <div class="mt-2">
              <p class="text-[20px] text-[#454544] font-semibold text-red-800">от 14 990    &nbsp;₽&nbsp;</p>
             <p class="text-[16px] text-gray-400 line-through">от 23 090 </p>
+            <div class="mt-2">
+             <div class="mt-2 border border-gray-400 rounded-lg py-1.5 text-center">
+              <p class="text-[14px] text-gray-700">от <span class="font-semibold">14 247 ₽</span> × 4 платежа</p>
+            </div>
         </div>
         </div>
        
